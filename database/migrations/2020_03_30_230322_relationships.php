@@ -13,7 +13,23 @@ class Relationships extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('teachers', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onUpdate('cascade')->onDelete('cascade');
+        });
+
+        Schema::table('teachers_discipline', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onUpdate('cascade')->onDelete('cascade');
+
+            $table->foreign('discipline_id')->references('id')->on('disciplines')
+                ->onUpdate('cascade')->onDelete('cascade');
+        });
+
+        Schema::table('teacher_docs', function (Blueprint $table) {
+            $table->foreign('name_id')->references('id')->on('disciplines')
+                ->onUpdate('cascade')->onDelete('cascade');
+        });
     }
 
     /**

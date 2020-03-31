@@ -14,7 +14,16 @@ class CreateTeacherDocsTable extends Migration
     public function up()
     {
         Schema::create('teacher_docs', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->integer('name_id')->unsigned();
+            $table->enum('sign', ['bachelor', 'magistracy', 'speciality'])->default('bachelor');
+            $table->string('ISBN', 10);
+            $table->integer('bookYear');
+            $table->string('press', 40);
+            $table->integer('pages');
+            $table->string('doc_number', 5);
+            $table->string('paper', 50);
+            $table->dateTime('document');
             $table->timestamps();
         });
     }
