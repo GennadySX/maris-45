@@ -15,9 +15,10 @@ class CreateDisciplinesTable extends Migration
     {
         Schema::create('disciplines', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('code');
-            $table->integer('integer');
-            $table->integer('countHours');
+            $table->integer('subject_id')->nullable();
+            $table->string('code')->nullable();
+            $table->integer('integer')->nullable();
+            $table->integer('countHours')->nullable();
             $table->boolean('examination')->default(false);
             $table->timestamps();
         });

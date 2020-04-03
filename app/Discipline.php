@@ -7,4 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Discipline extends Model
 {
     //
+
+    protected $fillable = [
+        'subject_id',
+        'code',
+        'integer',
+        'countHours',
+        'examination'
+    ];
 }

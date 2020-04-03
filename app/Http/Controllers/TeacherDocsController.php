@@ -12,9 +12,15 @@ class TeacherDocsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        //
+        return view('admin.discipline-docs.index');
     }
 
     /**
@@ -25,6 +31,11 @@ class TeacherDocsController extends Controller
     public function create()
     {
         //
+    }
+
+    public function new()
+    {
+        return view('admin.discipline-docs.create');
     }
 
     /**
@@ -57,7 +68,7 @@ class TeacherDocsController extends Controller
      */
     public function edit(TeacherDocs $teacherDocs)
     {
-        //
+        return view('admin.discipline-docs.edit');
     }
 
     /**

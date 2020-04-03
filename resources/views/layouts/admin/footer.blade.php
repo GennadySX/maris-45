@@ -4,9 +4,12 @@
 </div>
 </div>
 </div>
+</div>
 
-<script type="text/javascript" src="{{asset('admin\bower_components\jquery\js\jquery.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('admin\bower_components\jquery-ui\js\jquery-ui.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js\app.js')}}"></script>
+
+
+
 <script type="text/javascript" src="{{asset('admin\bower_components\popper.js\js\popper.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('admin\bower_components\bootstrap\js\bootstrap.min.js')}}"></script>
 <!-- jquery slimscroll js -->
@@ -34,23 +37,29 @@
 <!-- Custom js -->
 <script src="{{asset('admin\assets\pages\data-table\js\data-table-custom.js')}}"></script>
 
+<script src="{{asset('admin\assets\pages\user-profile.js')}}"></script>
+<script src="{{asset('admin\assets\js\pcoded.min.js')}}"></script>
+<script src="{{asset('admin\assets\js\vartical-layout.min.js')}}"></script>
+<script src="{{asset('admin\assets\js\jquery.mCustomScrollbar.concat.min.js')}}"></script>
+
 <script src="{{asset('admin\assets\js\pcoded.min.js')}}"></script>
 <script src="{{asset('admin\assets\js\vartical-layout.min.js')}}"></script>
 <script src="{{asset('admin\assets\js\jquery.mCustomScrollbar.concat.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('admin\assets\js\script.js')}}"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-
     function gtag() {
         dataLayer.push(arguments);
     }
-
     gtag('js', new Date());
 
     gtag('config', 'UA-23581568-13');
 </script>
+
+
+
+
 </body>
 
 </html>

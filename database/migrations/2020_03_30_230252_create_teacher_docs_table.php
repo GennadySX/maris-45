@@ -17,13 +17,13 @@ class CreateTeacherDocsTable extends Migration
             $table->increments('id');
             $table->integer('name_id')->unsigned();
             $table->enum('sign', ['bachelor', 'magistracy', 'speciality'])->default('bachelor');
-            $table->string('ISBN', 10);
-            $table->integer('bookYear');
-            $table->string('press', 40);
-            $table->integer('pages');
-            $table->string('doc_number', 5);
-            $table->string('paper', 50);
-            $table->dateTime('document');
+            $table->string('ISBN', 10)->nullable();
+            $table->integer('bookYear')->nullable();
+            $table->string('press', 40)->nullable();
+            $table->integer('pages')->nullable();
+            $table->string('doc_number', 5)->nullable();
+            $table->string('paper', 50)->nullable();
+            $table->dateTime('document')->nullable();
             $table->timestamps();
         });
     }

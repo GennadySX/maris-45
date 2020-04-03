@@ -38,5 +38,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('admin\assets\css\jquery.mCustomScrollbar.css')}}">
 </head>
 
-<body>
+<body >
 
+<div id="app">

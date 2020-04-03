@@ -21,6 +21,19 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
+
+//admin
+    //profile
+Vue.component('profile-data', require('./components/admin/profile/profile.vue').default);
+Vue.component('profile-photo', require('./components/admin/profile/profile-photo.vue').default);
+Vue.component('profile-edit', require('./components/admin/profile/profile-edit.vue').default);
+Vue.component('profile-edit-comment', require('./components/admin/profile/profile-edit-comment.vue').default);
+
+
+
+Vue.component('discipline-list', require('./components/admin/discipline/list.vue').default);
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
