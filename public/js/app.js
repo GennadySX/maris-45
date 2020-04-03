@@ -2220,6 +2220,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "profile-edit",
   props: {
@@ -2233,17 +2253,31 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
-  created: function created() {
-    console.log(this.user);
+  created: function created() {},
+  mounted: function mounted() {
+    this.init();
   },
   methods: {
-    save: function save(e) {
+    init: function init() {
       var _this = this;
+
+      console.log('profile edit ', this.user.teacher);
+      Object.keys(this.user.teacher).map(function (val, index) {
+        val === 'degreeYes' ? _this.user.teacher.degreeYes === 0 ? $('#degreeNO').attr('checked', true) : $('#degreeYes').attr('checked', true) : $('input[name="' + val + '"]').val(_this.user.teacher[val]);
+      });
+      $('input[name="email"]').val(this.user.email);
+    },
+    save: function save(e) {
+      var _this2 = this;
 
       e.preventDefault(); // console.log('form data ', this.formData)
 
       $('.form-send').serializeArray().map(function (val) {
-        _this.formData[val.name] = val.value;
+        _this2.formData[val.name] = val.value;
+
+        if (val.name === 'degreeYes') {
+          _this2.formData.degreeYes = $('input[name="degreeYes"]:checked').val();
+        }
       });
       axios.post('/home/profile/update', this.formData).then(function (res) {
         console.log('res data  ', res.data);
@@ -2251,7 +2285,7 @@ __webpack_require__.r(__webpack_exports__);
         if (res.data.status) {
           $('#edit-cancel').trigger('click');
 
-          _this.$emit('updated', res.data.data);
+          _this2.$emit('updated', res.data.data);
         } else alert('Что то пошло не так, пожалуйста повторите снова чут позже!');
       })["catch"](function (e) {
         return alert('Ошибка системы!');
@@ -39460,7 +39494,8 @@ var render = function() {
                                     _vm._v("Ученая степень")
                                   ]),
                                   _vm._v(" "),
-                                  this.teacher.degreeYes
+                                  this.teacher.degreeYes &&
+                                  this.teacher.degreeYes === 1
                                     ? _c("td", [_vm._v("Да")])
                                     : _c("td", [_vm._v("Нет")])
                                 ]),

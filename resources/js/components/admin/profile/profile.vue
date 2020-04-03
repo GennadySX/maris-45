@@ -103,7 +103,7 @@
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Ученая степень</th>
-                                                    <td v-if="this.teacher.degreeYes">Да</td>
+                                                    <td v-if="this.teacher.degreeYes && this.teacher.degreeYes === 1 ">Да</td>
                                                     <td v-else>Нет</td>
                                                 </tr>
                                                 <tr>
