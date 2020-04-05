@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Discipline;
+use App\Teacher;
 use Illuminate\Http\Request;
 
 class DisciplineController extends Controller
@@ -20,23 +21,29 @@ class DisciplineController extends Controller
 
     public function index()
     {
-           return view('admin.discipline.disciplines');
+        return view('admin.discipline.disciplines');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+    public function new()
     {
-        //
+
+        return view('admin.discipline.create');
+    }
+
+
+    public function create(Request $request, Discipline $discipline)
+    {
+        $discipline->fill($request->all());
+        return ($discipline->save()) ?
+            response()->json(['status' => true, 'data' => $discipline])
+            : response()->json(['status' => false, 'data' => $request->all()]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -47,7 +54,7 @@ class DisciplineController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Discipline  $discipline
+     * @param \App\Discipline $discipline
      * @return \Illuminate\Http\Response
      */
     public function show(Discipline $discipline)
@@ -58,7 +65,7 @@ class DisciplineController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Discipline  $discipline
+     * @param \App\Discipline $discipline
      * @return \Illuminate\Http\Response
      */
     public function edit(Discipline $discipline)
@@ -69,8 +76,8 @@ class DisciplineController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Discipline  $discipline
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Discipline $discipline
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Discipline $discipline)
@@ -81,7 +88,7 @@ class DisciplineController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Discipline  $discipline
+     * @param \App\Discipline $discipline
      * @return \Illuminate\Http\Response
      */
     public function destroy(Discipline $discipline)

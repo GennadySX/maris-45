@@ -11,12 +11,22 @@
 
 
 <script type="text/javascript" src="{{asset('admin\bower_components\popper.js\js\popper.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('admin\bower_components\bootstrap\js\bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin\bower_components\jquery-ui\js\jquery-ui.min.js')}}"></script>
 <!-- jquery slimscroll js -->
 <script type="text/javascript" src="{{asset('admin\bower_components\jquery-slimscroll\js\jquery.slimscroll.js')}}"></script>
 <!-- modernizr js -->
 <script type="text/javascript" src="{{asset('admin\bower_components\modernizr\js\modernizr.js')}}"></script>
 <script type="text/javascript" src="{{asset('admin\bower_components\modernizr\js\css-scrollbars.js')}}"></script>
+
+<!-- sweet alert js -->
+<script type="text/javascript" src="{{asset('admin\bower_components\sweetalert\js\sweetalert.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin\assets\js\modal.js')}}"></script>
+<!-- sweet alert modal.js intialize js -->
+<!-- modalEffects js nifty modal window effects -->
+<script type="text/javascript" src="{{asset('admin\assets\js\modalEffects.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin\assets\js\classie.js')}}"></script>
+
+
 <!-- data-table js -->
 <script src="{{asset('admin\bower_components\datatables.net\js\jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('admin\bower_components\datatables.net-buttons\js\dataTables.buttons.min.js')}}"></script>

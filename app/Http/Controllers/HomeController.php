@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Teacher;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 class HomeController extends Controller
 {
@@ -33,6 +35,11 @@ class HomeController extends Controller
             compact('data'));
     }
 
+    public function init()
+    {
+            $find = Teacher::where('user_id', Auth::id())->first();
+            return response()->json(['user'=>Auth::user(), 'teacher' => ($find) ? $find : null]);
+    }
 
     public function userUpdate(Request $request, User $user, Teacher $teacher)
     {
@@ -48,4 +55,19 @@ class HomeController extends Controller
             if ($findIt)
                 return response()->json(['data'=> $request->all(), 'status'=>true]);
     }
+
+
+    public function userAvatar(Request $request, Teacher $teacher)
+    {
+        if ($request->hasFile('image')) {
+            $filename = md5(Carbon::now()).'.jpg';
+            $image = Image::make($request->file('image')) ->save(public_path('/uploads/'.$filename));
+            if ($image)
+                Teacher::where('user_id', Auth::id())->update(['picture' => '/uploads/'.$filename]);
+                return response()->json(['image' => $image->filename]);
+        }
+        return response()->json(['status' => false]);
+
+    }
+
 }

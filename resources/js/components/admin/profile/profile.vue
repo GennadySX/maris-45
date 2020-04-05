@@ -4,7 +4,8 @@
         <!-- personal card start -->
         <div class="card">
             <div class="card-header">
-                <h5 class="card-header-text">Персональные данные</h5>
+                <h5 class="card-header-text"  v-if="this.teacher" >Персональные данные</h5>
+                <h5 class="card-header-text text-muted font-weight-normal" v-else>Заполните персональные данные!</h5>
                 <button id="edit-btn" type="button"
                         class="btn btn-sm btn-primary waves-effect waves-light f-right">
                     <i class="icofont icofont-edit"></i>
@@ -160,7 +161,7 @@
                     </div>
                     <div class="card-block user-desc">
                         <div class="view-desc">
-                            <p v-if="teacher.comment "> {{teacher.comment}}</p>
+                            <p v-if="teacher && teacher.comment "> {{teacher.comment}}</p>
                             <p v-else class="text-muted">Напишите о себе. </p>
                         </div>
                       <profile-comment

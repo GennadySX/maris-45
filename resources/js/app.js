@@ -25,13 +25,18 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 //admin
     //profile
 Vue.component('profile-data', require('./components/admin/profile/profile.vue').default);
+Vue.component('profile-header', require('./components/admin/profile/profile-header.vue').default);
 Vue.component('profile-photo', require('./components/admin/profile/profile-photo.vue').default);
 Vue.component('profile-edit', require('./components/admin/profile/profile-edit.vue').default);
 Vue.component('profile-edit-comment', require('./components/admin/profile/profile-edit-comment.vue').default);
 
 
 
+Vue.component('discipline-create', require('./components/admin/discipline/create.vue').default);
 Vue.component('discipline-list', require('./components/admin/discipline/list.vue').default);
+
+
+Vue.component('user-band', require('./components/admin/layouts/user-band.vue').default);
 
 
 /**

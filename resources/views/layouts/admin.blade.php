@@ -23,7 +23,9 @@
                             <li class="breadcrumb-item"><a href="#!">Дисциплины</a></li>
                         </ul>
                     </div>
+
                 </div>
+
             </div>
         </div>
         <!-- Page-header end -->

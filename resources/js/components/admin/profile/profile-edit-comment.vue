@@ -24,11 +24,12 @@
                 formData: {
                     user_id: this.userData.id,
                 },
-                comment: this.userData.teacher.comment
+                comment: null
             }
         },
         mounted() {
             // console.log('data is', this.comment)
+            this.comment = (this.userData.teacher) ? this.userData.teacher.comment: null
 
         },
         methods: {

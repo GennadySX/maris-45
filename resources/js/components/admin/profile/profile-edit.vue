@@ -5,7 +5,6 @@
             <div class="col-lg-12">
                 <div class="general-info">
                     <form action="/home/profile/update" class="form-send">
-
                         <div class="row">
                             <div class="col-lg-6">
                                 <table class="table">
@@ -199,19 +198,20 @@
         },
         methods: {
             init() {
-                console.log('profile edit ', this.user.teacher)
+                // console.log('profile edit ', this.user.teacher)
+                if (this.user.teacher) {
+                    Object.keys(this.user.teacher).map((val, index) => {
+                        (val === 'degreeYes') ? ((this.user.teacher.degreeYes === 0) ? $('#degreeNO').attr('checked', true) : $('#degreeYes').attr('checked', true))
+                            :
+                            $('input[name="' + val + '"]').val(this.user.teacher[val])
 
-                Object.keys(this.user.teacher).map((val, index) => {
-                    (val === 'degreeYes') ? ( (this.user.teacher.degreeYes === 0) ? $('#degreeNO').attr('checked', true) : $('#degreeYes').attr('checked', true))
-                    :
-                        $('input[name="' + val + '"]').val(this.user.teacher[val])
+                    })
+                }
 
-                })
                 $('input[name="email"]').val(this.user.email)
             },
             save(e) {
                 e.preventDefault()
-
 
                 // console.log('form data ', this.formData)
                 $('.form-send').serializeArray().map((val) => {
@@ -236,7 +236,7 @@
     }
 </script>
 
-<style scoped lang="scss">
+<style  lang="scss">
     input[type='radio'] {
         position: relative;
         top: 4px;

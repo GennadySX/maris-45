@@ -17,21 +17,29 @@ Route::group(['prefix' => '/'], function () {
     Route::get('/', 'FrontController@index');
     Route::get('/disciplines', 'FrontController@disciplines');
     Route::get('/teacher/{id}', 'FrontController@teacher');
+
+    Route::get('/user-init', 'HomeController@init');
+
+
 });
 
 Auth::routes();
+
+
+
 
 Route::group(['prefix' => '/home'], function () {
     Route::get('/', 'HomeController@index');
 
     Route::group(['prefix' => '/profile'], function () {
         Route::post('/update', 'HomeController@userUpdate');
+        Route::post('/avatar', 'HomeController@userAvatar');
     });
 
 
     Route::group(['prefix' => '/discipline'], function () {
         Route::get('/', 'DisciplineController@index');
-        Route::get('/create', 'DisciplineController@new');
+        Route::get('/new', 'DisciplineController@new');
         Route::post('/create', 'DisciplineController@create');
         Route::get('/edit', 'DisciplineController@edit');
         Route::post('/update', 'DisciplineController@update');
