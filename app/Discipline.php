@@ -9,7 +9,8 @@ class Discipline extends Model
     //
 
     protected $fillable = [
-        'subject_id',
+        'name',
+        'group',
         'code',
         'countHours',
         'courseWork',
@@ -17,4 +18,18 @@ class Discipline extends Model
         'nameId',
         'sign',
     ];
+
+
+    public function teacherlist()
+    {
+        return $this->belongsToMany( Teacher::class, TeacherDiscipline::class, 'discipline_id', 'user_id');
+    }
+
+    public function rel()
+    {
+        return $this->hasMany( TeacherDiscipline::class, 'discipline_id');
+    }
+
+
+
 }

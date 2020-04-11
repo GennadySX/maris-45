@@ -2,20 +2,26 @@
     <div class="tab-content">
         <div class="tab-pane active" id="home7" role="tabpanel">
             <form class="md-float-material card-block send-form" method="post" action="/">
-                <div class="row">
-                    <div class="col-sm-4">
+                <div class="row flex-wrap">
+                    <div class="col-sm-6">
                         <div class="input-group">
-                            <input type="text" class="form-control" name="subject_id"
-                                   placeholder="Регстрационный номер дисциплины">
+                            <input type="text" class="form-control" name="name"
+                                   placeholder="Название дисциплины">
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="group"
+                                   placeholder="Группа">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
                         <div class="input-group">
                             <input type="text" class="form-control" name="code"
                                    placeholder="Код дисциплины по учебному плану специальности">
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <div class="input-group">
                             <input type="number" class="form-control" name="countHours" min="10" max="150"
                                    placeholder="Количество часов для изучения дисциплину" >

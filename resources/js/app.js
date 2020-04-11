@@ -33,10 +33,16 @@ Vue.component('profile-edit-comment', require('./components/admin/profile/profil
 
 
 Vue.component('discipline-create', require('./components/admin/discipline/create.vue').default);
+Vue.component('discipline-edit', require('./components/admin/discipline/edit.vue').default);
 Vue.component('discipline-list', require('./components/admin/discipline/list.vue').default);
 
 
 Vue.component('user-band', require('./components/admin/layouts/user-band.vue').default);
+
+
+Vue.component('user-list', require('./components/admin/user/list.vue').default);
+
+Vue.component('doc-list', require('./components/admin/docs/list.vue').default);
 
 
 /**

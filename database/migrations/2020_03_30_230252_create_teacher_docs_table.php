@@ -16,6 +16,9 @@ class CreateTeacherDocsTable extends Migration
         Schema::create('teacher_docs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('name_id')->unsigned();
+            $table->string('name')->nullable();
+            $table->text('comment')->nullable();
+            $table->integer('user_id')->unsigned();
             $table->enum('sign', ['bachelor', 'magistracy', 'speciality'])->default('bachelor');
             $table->string('ISBN', 10)->nullable();
             $table->integer('bookYear')->nullable();

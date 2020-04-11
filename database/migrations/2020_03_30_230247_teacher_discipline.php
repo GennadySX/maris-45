@@ -17,6 +17,7 @@ class TeacherDiscipline extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('discipline_id')->unsigned();
+            $table->boolean('permission')->default(false);
             $table->timestamps();
         });
     }

@@ -9,13 +9,7 @@
                 </div>
                 @endif
                 <div class="row" >
-
-                    <discipline-list></discipline-list>
-                    <discipline-list></discipline-list>
-                    <discipline-list></discipline-list>
-                    <discipline-list></discipline-list>
-
-
+                    <discipline-list />
                 </div>
             </div>
             <!-- Page-body end -->

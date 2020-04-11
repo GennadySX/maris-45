@@ -18,7 +18,7 @@
                             <span class="pcoded-mtext">Дисциплины</span>
                         </a>
                     </li>
-                    <li class="pcoded-menu">
+                    <li class="pcoded-menu" >
                         <a href="/home/teacherDocs">
                             <span class="pcoded-micon"><i class="feather icon-book"></i></span>
                             <span class="pcoded-mtext">Учебники</span>
@@ -26,12 +26,6 @@
                     </li>
                     @endif
                     @if(\Illuminate\Support\Facades\Auth::user()->role === 'admin')
-                        <li class="pcoded-menu">
-                            <a href="/home/teachers">
-                                <span class="pcoded-micon"><i class="feather icon-book"></i></span>
-                                <span class="pcoded-mtext">Преподавателей</span>
-                            </a>
-                        </li>
 
                         <li class="pcoded-menu">
                             <a href="/home/users">

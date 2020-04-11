@@ -22,7 +22,7 @@ class CreateTeachersTable extends Migration
             $table->date('birth')->nullable();
             $table->string('place', 20)->nullable();
             $table->string('address', 60)->nullable();
-            $table->string('phone', 15)->nullable();
+            $table->string('phone', 25)->nullable();
             $table->string('education', 40)->nullable();
             $table->integer('year')->nullable();
             $table->string('speciality', 30)->nullable();

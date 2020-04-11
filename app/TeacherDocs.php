@@ -10,6 +10,8 @@ class TeacherDocs extends Model
 
     protected $fillable = [
         'name_id',
+        'name',
+        'comment',
         'sign',
         'ISBN',
         'press',
@@ -19,6 +21,8 @@ class TeacherDocs extends Model
         'paper',
         'document',
     ];
+
+
 
 
 }

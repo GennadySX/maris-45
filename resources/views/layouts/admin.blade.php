@@ -10,7 +10,9 @@
                 <div class="col-lg-8">
                     <div class="page-header-title">
                         <div class="d-inline">
-                            <h4 style="text-transform: none">Мои дисциплины</h4>
+                            <h4 style="text-transform: none">
+                            {{$pageTitle}}
+                            </h4>
                         </div>
                     </div>
                 </div>

@@ -74,26 +74,11 @@
                     </ul>
                     <ul class="nav-right">
                         <li class="user-profile header-notification">
-                            <div class="dropdown-primary dropdown">
-                             <user-band />
-                                <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                                    <li>
-                                        <a href="/home">
-                                            <i class="feather icon-user"></i> Профиль
-                                        </a>
-                                    </li>
 
-                                    <li>
-                                        <a href="{{ route('logout') }}"   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            <i class="feather icon-log-out"></i> Выйти
-                                        </a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
-                                    </li>
-                                </ul>
-                            </div>
+                            <user-band>
+                            @csrf
+                            </user-band>
+
                         </li>
                     </ul>
                 </div>

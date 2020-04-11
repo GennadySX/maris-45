@@ -32,7 +32,7 @@ class HomeController extends Controller
         $data->teacher = Teacher::where('user_id', Auth::id())->first();
 
         return view('admin.profile.profile',
-            compact('data'));
+            compact('data'))->with(['pageTitle' => 'Профиль']);
     }
 
     public function init()
@@ -41,9 +41,13 @@ class HomeController extends Controller
             return response()->json(['user'=>Auth::user(), 'teacher' => ($find) ? $find : null]);
     }
 
-    public function userUpdate(Request $request, User $user, Teacher $teacher)
+    public function userUpdate(Request $request, Teacher $teacher)
     {
         $findIt = Teacher::where('user_id', Auth::id());
+        if (isset($request->email)) {
+        User::where('id', Auth::id())
+            ->update(['email' => $request->email, 'name' =>  $request->name]);
+        }
         if (!$findIt->first()) {
             $teacher->fill($request->all());
             if ($teacher->save())
@@ -67,7 +71,21 @@ class HomeController extends Controller
                 return response()->json(['image' => $image->filename]);
         }
         return response()->json(['status' => false]);
+    }
 
+
+    public function userList()
+    {
+        $userList = User::all();
+        return view('admin.user.index', compact('userList'))->with(['pageTitle' => 'Пользователи']);
+    }
+
+
+    public function userUpdateAlone(Request $request)
+    {
+        User::where('id',$request->id)
+            ->update($request->all());
+        return response()->json(['status' => true]);
     }
 
 }

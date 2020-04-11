@@ -87,8 +87,8 @@
         opacity: 1;
     }
     .user-img {
-        max-width: 137px;
-        max-height: 137px;
+       width: 137px ;
+        height: 137px ;
         object-fit: cover;
     }
 

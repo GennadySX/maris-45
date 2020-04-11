@@ -15,12 +15,13 @@ class CreateDisciplinesTable extends Migration
     {
         Schema::create('disciplines', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('subject_id')->nullable();
+            $table->string('name')->nullable();
+            $table->string('group')->nullable();
             $table->string('code')->nullable();
             $table->integer('countHours')->nullable();
             $table->boolean('courseWork')->default(false);
             $table->boolean('examination')->default(false);
-            $table->integer('nameId')->default(0);
+            $table->string('nameId')->default("0");
             $table->enum('sign', ['bachelor', 'magistracy', 'speciality'])->default('bachelor');
             $table->timestamps();
         });

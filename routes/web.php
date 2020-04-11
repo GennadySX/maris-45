@@ -39,19 +39,17 @@ Route::group(['prefix' => '/home'], function () {
 
     Route::group(['prefix' => '/discipline'], function () {
         Route::get('/', 'DisciplineController@index');
+        Route::get('/list', 'DisciplineController@list');
         Route::get('/new', 'DisciplineController@new');
         Route::post('/create', 'DisciplineController@create');
-        Route::get('/edit', 'DisciplineController@edit');
+        Route::get('/edit/{id}', 'DisciplineController@edit');
         Route::post('/update', 'DisciplineController@update');
+        Route::get('/delete/{id}', 'DisciplineController@destroy');
+        Route::post('/teacher/add', 'DisciplineController@teacherAdd');
+        Route::post('/teacher/remove', 'DisciplineController@teacherRemove');
     });
 
-    Route::group(['prefix' => '/discipline'], function () {
-        Route::get('/', 'DisciplineController@index');
-        Route::get('/create', 'DisciplineController@new');
-        Route::post('/create', 'DisciplineController@create');
-        Route::get('/edit', 'DisciplineController@edit');
-        Route::post('/update', 'DisciplineController@update');
-    });
+
 
     Route::group(['prefix' => '/teacher'], function () {
         Route::get('/', 'TeacherController@index');
@@ -67,8 +65,16 @@ Route::group(['prefix' => '/home'], function () {
         Route::post('/create', 'TeacherDocsController@create');
         Route::get('/edit', 'TeacherDocsController@edit');
         Route::post('/update', 'TeacherDocsController@update');
+        Route::get('/destroy/{id}', 'TeacherDocsController@destroy');
+        Route::post('/destroy', 'TeacherDocsController@destroyPost');
     });
 
+
+    Route::group(['prefix' => '/users'], function () {
+
+        Route::get('/', 'HomeController@userList');
+        Route::post('/update', 'HomeController@userUpdateAlone');
+    });
 
 });
 
